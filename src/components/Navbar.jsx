@@ -10,7 +10,7 @@ const Navbar = () => {
     { path: '/tentang', label: 'Tentang' },
     { path: '/program', label: 'Program' },
     { path: '/galeri', label: 'Galeri' },
-    { path: '/aspirasi', label: 'Aspirasi' },
+    { path: '/aspirasi', label: 'Kontak' },
   ];
 
   const isActive = (path) => location.pathname === path;

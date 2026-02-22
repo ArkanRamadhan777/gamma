@@ -200,16 +200,16 @@ const Home = () => {
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Sampaikan Aspirasimu!
+              Hubungi Kami!
             </h2>
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Suaramu penting untuk kami. GAMMA adalah jembatan antara siswa dan sekolah untuk menciptakan lingkungan belajar yang lebih baik.
+              Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami melalui berbagai saluran komunikasi yang tersedia.
             </p>
             <Link
               to="/aspirasi"
               className="inline-block px-8 py-4 bg-white text-primary hover:text-accent font-semibold rounded-full transition-all duration-300 shadow-soft-lg hover:shadow-glow-cyan hover:scale-105 active:scale-95"
             >
-              Kirim Aspirasi Sekarang
+              Lihat Info Kontak
             </Link>
           </div>
         </div>

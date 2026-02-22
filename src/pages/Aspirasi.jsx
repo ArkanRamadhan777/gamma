@@ -1,50 +1,4 @@
-import { useState } from 'react';
-
 const Aspirasi = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    category: '',
-    message: '',
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // In a real application, this would send data to a backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        category: '',
-        message: '',
-      });
-    }, 3000);
-  };
-
-  const categories = [
-    'Saran Program',
-    'Kritik Kegiatan',
-    'Usulan Kebijakan',
-    'Keluhan Fasilitas',
-    'Apresiasi',
-    'Lainnya',
-  ];
 
   const contactInfo = [
     {
@@ -90,33 +44,6 @@ const Aspirasi = () => {
     },
   ];
 
-  const aspirationProcess = [
-    {
-      step: '1',
-      title: 'Sampaikan Aspirasi',
-      description: 'Isi form dengan lengkap dan jelas',
-      icon: '✍️',
-    },
-    {
-      step: '2',
-      title: 'Review Tim',
-      description: 'Aspirasi akan di-review dalam 1x24 jam',
-      icon: '🔍',
-    },
-    {
-      step: '3',
-      title: 'Tindak Lanjut',
-      description: 'Kami akan koordinasikan dengan pihak terkait',
-      icon: '⚡',
-    },
-    {
-      step: '4',
-      title: 'Feedback',
-      description: 'Kamu akan mendapat update via email',
-      icon: '✅',
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -129,174 +56,23 @@ const Aspirasi = () => {
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Aspirasi & Kontak
+              Hubungi Kami
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-              Suaramu penting untuk kami. GAMMA adalah jembatan aspirasi untuk sekolah yang lebih baik.
+              Ada pertanyaan atau ingin berkolaborasi? Hubungi kami melalui berbagai saluran komunikasi di bawah ini.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="bg-white section-padding relative overflow-hidden">
-        <div className="shape-float-2" style={{top: '20%', right: '5%'}}></div>
-        <div className="shape-float-4" style={{bottom: '10%', left: '8%'}}></div>
-        
-        <div className="container-custom relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Cara Kerja <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Aspirasi</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Kami memiliki sistem yang jelas untuk menindaklanjuti setiap aspirasi
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {aspirationProcess.map((process, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-gradient-to-br from-primary via-accent to-secondary w-16 h-16 rounded-3xl flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-soft group-hover:shadow-glow-cyan">
-                  {process.icon}
-                </div>
-                <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                  {process.step}
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
-                  {process.title}
-                </h3>
-                <p className="text-gray-600">
-                  {process.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Form & Contact Section */}
+      {/* Contact Section */}
       <section className="bg-gradient-to-br from-white via-neutral/20 to-white section-padding relative overflow-hidden">
         <div className="shape-float-1" style={{top: '15%', left: '5%'}}></div>
         <div className="shape-float-3" style={{bottom: '20%', right: '8%'}}></div>
         
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Form */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-soft-lg border border-gray-100">
-              <h2 className="text-3xl font-bold text-gray-800 mb-2">
-                Sampaikan <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Aspirasimu</span>
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Isi form di bawah dengan lengkap dan jelas
-              </p>
-
-              {submitted ? (
-                <div className="bg-gradient-to-br from-green-50 to-green-100/50 border-2 border-green-500 rounded-3xl p-8 text-center">
-                  <div className="text-6xl mb-4">✅</div>
-                  <h3 className="text-2xl font-bold text-green-700 mb-2">
-                    Aspirasi Terkirim!
-                  </h3>
-                  <p className="text-green-600">
-                    Terima kasih atas aspirasi kamu. Kami akan menindaklanjuti dalam 1x24 jam.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">
-                      Nama Lengkap *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-                      placeholder="Masukkan nama lengkap"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-                      placeholder="nama@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">
-                      No. WhatsApp
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-                      placeholder="08xx xxxx xxxx"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">
-                      Kategori Aspirasi *
-                    </label>
-                    <select
-                      name="category"
-                      value={formData.category}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-                    >
-                      <option value="">Pilih kategori</option>
-                      {categories.map((cat, index) => (
-                        <option key={index} value={cat}>
-                          {cat}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-semibold mb-2">
-                      Pesan / Aspirasi *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows="6"
-                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
-                      placeholder="Sampaikan aspirasi kamu dengan jelas..."
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-full hover:from-primary-dark hover:to-accent-dark shadow-soft-lg hover:shadow-glow-cyan transition-all duration-300 hover:scale-105 active:scale-95"
-                  >
-                    Kirim Aspirasi
-                  </button>
-
-                  <p className="text-sm text-gray-500 text-center">
-                    Dengan mengirim form ini, kamu setuju bahwa data akan diproses oleh tim GAMMA
-                  </p>
-                </form>
-              )}
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-3xl p-8 shadow-soft-lg border border-gray-100">
                 <h2 className="text-3xl font-bold text-gray-800 mb-2">
                   Informasi <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Kontak</span>
@@ -344,77 +120,12 @@ const Aspirasi = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-8 border border-gray-100">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  💡 Tips Aspirasi Efektif
-                </h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Sampaikan dengan jelas dan spesifik</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Berikan konteks dan latar belakang</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Sertakan solusi jika memungkinkan</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Gunakan bahasa yang sopan</span>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="bg-white section-padding relative overflow-hidden">
-        <div className="shape-float-1" style={{top: '15%', right: '10%'}}></div>
-        <div className="shape-float-3" style={{bottom: '20%', left: '8%'}}></div>
-        
-        <div className="container-custom relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">
-              Pertanyaan <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Umum</span>
-            </h2>
 
-            <div className="space-y-4">
-              <div className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-6 border border-gray-100 hover:shadow-soft transition-all duration-300">
-                <h3 className="font-bold text-gray-800 mb-2">
-                  Apakah aspirasi saya akan ditindaklanjuti?
-                </h3>
-                <p className="text-gray-600">
-                  Ya, setiap aspirasi yang masuk akan di-review dan ditindaklanjuti sesuai dengan kewenangan dan prosedur yang berlaku.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-6 border border-gray-100 hover:shadow-soft transition-all duration-300">
-                <h3 className="font-bold text-gray-800 mb-2">
-                  Berapa lama waktu respon aspirasi?
-                </h3>
-                <p className="text-gray-600">
-                  Tim kami akan merespon dalam waktu maksimal 1x24 jam pada hari kerja.
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-6 border border-gray-100 hover:shadow-soft transition-all duration-300">
-                <h3 className="font-bold text-gray-800 mb-2">
-                  Apakah identitas saya akan dirahasiakan?
-                </h3>
-                <p className="text-gray-600">
-                  Data pribadi kamu akan dijaga kerahasiaannya dan hanya digunakan untuk keperluan koordinasi aspirasi.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
