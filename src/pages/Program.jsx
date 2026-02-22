@@ -133,13 +133,18 @@ const Program = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-dark to-primary-light text-white py-20 md:py-24">
-        <div className="container-custom">
+      <section className="bg-gradient-to-br from-primary via-accent to-secondary text-white py-20 md:py-24 relative overflow-hidden">
+        {/* Floating Shapes */}
+        <div className="shape-float-1" style={{top: '15%', left: '8%'}}></div>
+        <div className="shape-float-2" style={{bottom: '20%', right: '12%'}}></div>
+        <div className="shape-float-3" style={{top: '50%', right: '5%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Program & Kegiatan
             </h1>
-            <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
               Program-program terstruktur yang dirancang untuk mengembangkan potensi, kreativitas, dan karakter siswa
             </p>
           </div>
@@ -147,45 +152,45 @@ const Program = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="bg-white py-8 sticky top-16 md:top-20 z-40 shadow-sm">
+      <section className="bg-white/80 backdrop-blur-lg py-8 sticky top-16 md:top-20 z-40 shadow-soft border-b border-gray-100">
         <div className="container-custom">
           <div className="flex flex-wrap justify-center gap-3">
             <button
               onClick={() => setFilter('semua')}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 filter === 'semua'
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-neutral text-gray-600 hover:bg-neutral-dark'
+                  ? 'bg-gradient-to-r from-primary to-accent text-white shadow-glow-cyan scale-105'
+                  : 'bg-neutral/50 text-gray-600 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:scale-105'
               }`}
             >
               Semua Program
             </button>
             <button
               onClick={() => setFilter('Aktif')}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 filter === 'Aktif'
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-neutral text-gray-600 hover:bg-neutral-dark'
+                  ? 'bg-gradient-to-r from-primary to-accent text-white shadow-glow-cyan scale-105'
+                  : 'bg-neutral/50 text-gray-600 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:scale-105'
               }`}
             >
               Aktif
             </button>
             <button
               onClick={() => setFilter('Tahunan')}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 filter === 'Tahunan'
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-neutral text-gray-600 hover:bg-neutral-dark'
+                  ? 'bg-gradient-to-r from-primary to-accent text-white shadow-glow-cyan scale-105'
+                  : 'bg-neutral/50 text-gray-600 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:scale-105'
               }`}
             >
               Tahunan
             </button>
             <button
               onClick={() => setFilter('Kolaborasi')}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 filter === 'Kolaborasi'
-                  ? 'bg-primary text-white shadow-lg'
-                  : 'bg-neutral text-gray-600 hover:bg-neutral-dark'
+                  ? 'bg-gradient-to-r from-primary to-accent text-white shadow-glow-cyan scale-105'
+                  : 'bg-neutral/50 text-gray-600 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:scale-105'
               }`}
             >
               Kolaborasi
@@ -195,18 +200,22 @@ const Program = () => {
       </section>
 
       {/* Programs Grid */}
-      <section className="bg-gradient-to-br from-gray-50 to-neutral section-padding">
-        <div className="container-custom">
+      <section className="bg-gradient-to-br from-white via-neutral/20 to-white section-padding relative overflow-hidden">
+        <div className="shape-float-1" style={{top: '10%', left: '5%'}}></div>
+        <div className="shape-float-2" style={{bottom: '15%', right: '8%'}}></div>
+        <div className="shape-float-4" style={{top: '50%', right: '15%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {filteredPrograms.map((program, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-1"
+                className="bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-2 group border border-gray-100"
               >
-                <div className={`h-3 ${program.color}`}></div>
+                <div className={`h-2 bg-gradient-to-r ${program.color === 'bg-primary' ? 'from-primary to-accent' : 'from-accent to-secondary'}`}></div>
                 <div className="p-8">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${program.color} rounded-2xl flex items-center justify-center text-3xl flex-shrink-0`}>
+                    <div className={`w-16 h-16 bg-gradient-to-br ${program.color === 'bg-primary' ? 'from-primary to-primary-dark' : 'from-accent to-secondary'} rounded-3xl flex items-center justify-center text-3xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-soft`}>
                       {program.icon}
                     </div>
                     <span className={`px-4 py-2 ${program.statusColor} rounded-full text-sm font-semibold`}>
@@ -214,7 +223,7 @@ const Program = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
                     {program.title}
                   </h3>
                   
@@ -248,28 +257,31 @@ const Program = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      <section className="bg-white section-padding relative overflow-hidden">
+        <div className="shape-float-3" style={{top: '20%', left: '10%'}}></div>
+        <div className="shape-float-2" style={{bottom: '15%', right: '8%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">
-              Dampak Program Kami
+              Dampak <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Program Kami</span>
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-8 text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">8</div>
-                <div className="text-blue-100">Program Aktif</div>
+              <div className="bg-gradient-to-br from-primary to-accent text-white rounded-3xl p-8 text-center hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-glow-cyan group">
+                <div className="text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">8</div>
+                <div className="text-white/90">Program Aktif</div>
               </div>
-              <div className="bg-gradient-to-br from-accent to-accent-dark text-white rounded-2xl p-8 text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
-                <div className="text-orange-100">Siswa Terlibat</div>
+              <div className="bg-gradient-to-br from-accent to-secondary text-white rounded-3xl p-8 text-center hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-glow-purple group">
+                <div className="text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
+                <div className="text-white/90">Siswa Terlibat</div>
               </div>
-              <div className="bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-8 text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">24+</div>
-                <div className="text-blue-100">Event per Tahun</div>
+              <div className="bg-gradient-to-br from-secondary to-primary text-white rounded-3xl p-8 text-center hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-glow-pink group">
+                <div className="text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">24+</div>
+                <div className="text-white/90">Event per Tahun</div>
               </div>
-              <div className="bg-gradient-to-br from-accent to-accent-dark text-white rounded-2xl p-8 text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">95%</div>
-                <div className="text-orange-100">Kepuasan Siswa</div>
+              <div className="bg-gradient-to-br from-primary via-accent to-secondary text-white rounded-3xl p-8 text-center hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-glow-cyan group">
+                <div className="text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">95%</div>
+                <div className="text-white/90">Kepuasan Siswa</div>
               </div>
             </div>
           </div>
@@ -277,18 +289,23 @@ const Program = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary to-accent text-white section-padding">
-        <div className="container-custom">
+      <section className="bg-gradient-to-r from-primary via-accent to-secondary text-white section-padding relative overflow-hidden">
+        {/* Floating Shapes */}
+        <div className="shape-float-1" style={{top: '20%', left: '10%'}}></div>
+        <div className="shape-float-2" style={{bottom: '25%', right: '15%'}}></div>
+        <div className="shape-float-4" style={{top: '40%', right: '5%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Ingin Berpartisipasi?
             </h2>
-            <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               Semua program GAMMA terbuka untuk seluruh siswa. Mari bergabung dan berkontribusi untuk sekolah kita!
             </p>
             <a
               href="mailto:contact@gamma.team"
-              className="inline-block px-8 py-4 bg-white text-primary hover:bg-neutral font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-block px-8 py-4 bg-white text-primary hover:text-accent font-semibold rounded-full transition-all duration-300 shadow-soft-lg hover:shadow-glow-cyan hover:scale-105 active:scale-95"
             >
               Daftar Sekarang
             </a>

@@ -103,13 +103,18 @@ const Tentang = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-dark to-primary-light text-white py-20 md:py-24">
-        <div className="container-custom">
+      <section className="bg-gradient-to-br from-primary via-accent to-secondary text-white py-20 md:py-24 relative overflow-hidden">
+        {/* Floating Shapes */}
+        <div className="shape-float-1" style={{top: '15%', left: '8%'}}></div>
+        <div className="shape-float-2" style={{bottom: '20%', right: '12%'}}></div>
+        <div className="shape-float-3" style={{top: '50%', right: '5%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Tentang GAMMA
             </h1>
-            <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
               Mengenal lebih dekat organisasi yang bergerak bersama untuk membangun generasi berkarya
             </p>
           </div>
@@ -117,17 +122,22 @@ const Tentang = () => {
       </section>
 
       {/* Visi Section */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      <section className="bg-white section-padding relative overflow-hidden">
+        <div className="shape-float-4" style={{top: '10%', right: '5%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-primary to-primary-dark text-white rounded-3xl p-8 md:p-12 lg:p-16 shadow-xl">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
-                  <span className="text-2xl">🎯</span>
+            <div className="bg-gradient-to-br from-primary via-accent to-secondary text-white rounded-3xl p-8 md:p-12 lg:p-16 shadow-soft-lg relative overflow-hidden">
+              {/* Internal floating shapes */}
+              <div className="shape-float-2" style={{top: '10%', right: '5%', opacity: 0.15}}></div>
+              
+              <div className="flex items-center mb-6 relative z-10">
+                <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mr-4 hover:scale-110 transition-transform duration-300">
+                  <span className="text-3xl">🎯</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold">Visi Kami</h2>
               </div>
-              <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/95 leading-relaxed relative z-10">
                 {visiMisi.visi}
               </p>
             </div>
@@ -136,12 +146,15 @@ const Tentang = () => {
       </section>
 
       {/* Misi Section */}
-      <section className="bg-neutral-light section-padding">
-        <div className="container-custom">
+      <section className="bg-gradient-to-br from-neutral/30 to-white section-padding relative overflow-hidden">
+        <div className="shape-float-1" style={{top: '20%', left: '8%'}}></div>
+        <div className="shape-float-3" style={{bottom: '15%', right: '10%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-                Misi Kami
+                Misi <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Kami</span>
               </h2>
               <p className="text-lg text-gray-600">
                 Langkah konkret untuk mewujudkan visi organisasi
@@ -152,13 +165,13 @@ const Tentang = () => {
               {visiMisi.misi.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-1"
+                  className="bg-white rounded-3xl p-6 md:p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-2 group border border-gray-100"
                 >
                   <div className="flex items-start">
-                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center text-white font-bold mr-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary via-accent to-secondary rounded-2xl flex items-center justify-center text-white font-bold mr-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-soft">
                       {index + 1}
                     </div>
-                    <p className="text-gray-700 text-lg leading-relaxed pt-1">
+                    <p className="text-gray-700 text-lg leading-relaxed pt-2">
                       {item}
                     </p>
                   </div>
@@ -170,11 +183,14 @@ const Tentang = () => {
       </section>
 
       {/* Values Section */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      <section className="bg-white section-padding relative overflow-hidden">
+        <div className="shape-float-2" style={{top: '10%', right: '8%'}}></div>
+        <div className="shape-float-4" style={{bottom: '15%', left: '12%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-              Nilai Organisasi
+              Nilai <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Organisasi</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Prinsip-prinsip yang menjadi fondasi dalam setiap langkah dan keputusan GAMMA
@@ -185,12 +201,12 @@ const Tentang = () => {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-neutral rounded-2xl p-8 hover:shadow-xl transition-all duration-200 hover:-translate-y-1"
+                className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-8 hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-2 group border border-gray-100"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center text-3xl mb-6`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${value.color === 'bg-primary' ? 'from-primary to-primary-dark' : 'from-accent to-secondary'} rounded-3xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-soft`}>
                   {value.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
                   {value.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -203,16 +219,19 @@ const Tentang = () => {
       </section>
 
       {/* Structure Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-neutral section-padding">
-        <div className="container-custom">
+      <section className="bg-gradient-to-br from-neutral/30 to-white section-padding relative overflow-hidden">
+        <div className="shape-float-1" style={{top: '15%', right: '10%'}}></div>
+        <div className="shape-float-3" style={{bottom: '20%', left: '8%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-              Struktur Kepengurusan
+              Struktur <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Kepengurusan</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Tim solid yang berkomitmen untuk memberikan yang terbaik
             </p>
-            <div className="mt-4 inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+            <div className="mt-4 inline-block px-5 py-2.5 bg-gradient-to-r from-primary/10 to-accent/10 text-primary rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300">
               Periode 2025/2026
             </div>
           </div>
@@ -221,13 +240,13 @@ const Tentang = () => {
             {structure.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-1"
+                className="bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-2 group border border-gray-100"
               >
-                <div className={`h-48 bg-gradient-to-br ${member.color} flex items-center justify-center text-7xl`}>
+                <div className={`h-48 bg-gradient-to-br ${member.color} flex items-center justify-center text-7xl group-hover:scale-110 transition-transform duration-300`}>
                   {member.photo}
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
                     {member.name}
                   </h3>
                   <p className="text-primary font-medium">
@@ -238,9 +257,9 @@ const Tentang = () => {
             ))}
           </div>
 
-          <div className="mt-12 bg-white rounded-2xl p-8 md:p-12 text-center shadow-lg">
+          <div className="mt-12 bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-8 md:p-12 text-center shadow-soft-lg border border-gray-100">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Dan 37+ Anggota Lainnya
+              Dan <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">37+ Anggota</span> Lainnya
             </h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Didukung oleh tim solid di berbagai bidang: Ketaqwaan, Budi Pekerti, Seni & Olahraga, Kewirausahaan, dan masih banyak lagi.
@@ -250,18 +269,23 @@ const Tentang = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-accent to-primary text-white section-padding">
-        <div className="container-custom">
+      <section className="bg-gradient-to-r from-accent via-secondary to-primary text-white section-padding relative overflow-hidden">
+        {/* Floating Shapes */}
+        <div className="shape-float-1" style={{top: '20%', left: '10%'}}></div>
+        <div className="shape-float-2" style={{bottom: '25%', right: '15%'}}></div>
+        <div className="shape-float-4" style={{top: '40%', right: '5%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Mari Bergabung Bersama Kami
             </h2>
-            <p className="text-lg md:text-xl text-orange-100 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               Jadilah bagian dari gerakan positif untuk membangun lingkungan dan masyarakat yang lebih baik.
             </p>
             <a
               href="mailto:contact@gamma.team"
-              className="inline-block px-8 py-4 bg-white text-primary hover:bg-neutral font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-block px-8 py-4 bg-white text-primary hover:text-accent font-semibold rounded-full transition-all duration-300 shadow-soft-lg hover:shadow-glow-cyan hover:scale-105 active:scale-95"
             >
               Hubungi Kami
             </a>

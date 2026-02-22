@@ -17,27 +17,32 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 text-white relative overflow-hidden">
+      {/* Floating Shapes */}
+      <div className="shape-float-1" style={{top: '10%', right: '15%'}}></div>
+      <div className="shape-float-2" style={{bottom: '20%', left: '10%'}}></div>
+      <div className="shape-float-3" style={{top: '40%', right: '5%'}}></div>
+      
       {/* Main Footer */}
-      <div className="container-custom py-12 md:py-16">
+      <div className="container-custom py-12 md:py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* About Section */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
+            <div className="flex items-center space-x-3 mb-4 group">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary via-accent to-secondary rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-glow-cyan">
                 <span className="text-white font-bold text-2xl">G</span>
               </div>
-              <span className="text-2xl font-bold">GAMMA</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">GAMMA</span>
             </div>
-            <p className="text-gray-400 mb-4 max-w-md">
+            <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
               Platform organisasi modern yang bergerak bersama untuk membangun generasi berkarya, berprestasi, dan berdedikasi.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
-                  className="w-10 h-10 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors duration-200"
+                  className="w-11 h-11 bg-gradient-to-br from-gray-800 to-gray-700 hover:from-primary hover:to-accent rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-glow-cyan"
                   aria-label={social.name}
                 >
                   {social.icon === 'instagram' && (
@@ -62,13 +67,16 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Link Cepat</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-bold mb-4 relative inline-block">
+              <span className="relative z-10">Link Cepat</span>
+              <span className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+            </h3>
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 hover:text-accent transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -79,7 +87,10 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Kontak</h3>
+            <h3 className="text-lg font-bold mb-4 relative inline-block">
+              <span className="relative z-10">Kontak</span>
+              <span className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-accent to-secondary rounded-full"></span>
+            </h3>
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start space-x-2">
                 <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,14 +117,14 @@ const Footer = () => {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-gray-800/50 backdrop-blur-sm relative z-10">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <p className="text-gray-400 text-sm text-center md:text-left">
               © {currentYear} GAMMA. Bergerak Bersama, Membangun Generasi Berkarya.
             </p>
             <p className="text-gray-400 text-sm">
-              made by ganexa
+              made by <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">ganexa</span>
             </p>
           </div>
         </div>

@@ -120,13 +120,18 @@ const Aspirasi = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-dark to-primary-light text-white py-20 md:py-24">
-        <div className="container-custom">
+      <section className="bg-gradient-to-br from-primary via-accent to-secondary text-white py-20 md:py-24 relative overflow-hidden">
+        {/* Floating Shapes */}
+        <div className="shape-float-1" style={{top: '15%', left: '8%'}}></div>
+        <div className="shape-float-2" style={{bottom: '20%', right: '12%'}}></div>
+        <div className="shape-float-3" style={{top: '50%', right: '5%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Aspirasi & Kontak
             </h1>
-            <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
               Suaramu penting untuk kami. GAMMA adalah jembatan aspirasi untuk sekolah yang lebih baik.
             </p>
           </div>
@@ -134,11 +139,14 @@ const Aspirasi = () => {
       </section>
 
       {/* Process Section */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      <section className="bg-white section-padding relative overflow-hidden">
+        <div className="shape-float-2" style={{top: '20%', right: '5%'}}></div>
+        <div className="shape-float-4" style={{bottom: '10%', left: '8%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Cara Kerja Aspirasi
+              Cara Kerja <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Aspirasi</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Kami memiliki sistem yang jelas untuk menindaklanjuti setiap aspirasi
@@ -147,14 +155,14 @@ const Aspirasi = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {aspirationProcess.map((process, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-gradient-to-br from-primary to-accent w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4">
+              <div key={index} className="text-center group">
+                <div className="bg-gradient-to-br from-primary via-accent to-secondary w-16 h-16 rounded-3xl flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-soft group-hover:shadow-glow-cyan">
                   {process.icon}
                 </div>
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                   {process.step}
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
                   {process.title}
                 </h3>
                 <p className="text-gray-600">
@@ -167,20 +175,23 @@ const Aspirasi = () => {
       </section>
 
       {/* Form & Contact Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-neutral section-padding">
-        <div className="container-custom">
+      <section className="bg-gradient-to-br from-white via-neutral/20 to-white section-padding relative overflow-hidden">
+        <div className="shape-float-1" style={{top: '15%', left: '5%'}}></div>
+        <div className="shape-float-3" style={{bottom: '20%', right: '8%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Form */}
-            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl">
+            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-soft-lg border border-gray-100">
               <h2 className="text-3xl font-bold text-gray-800 mb-2">
-                Sampaikan Aspirasimu
+                Sampaikan <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Aspirasimu</span>
               </h2>
               <p className="text-gray-600 mb-8">
                 Isi form di bawah dengan lengkap dan jelas
               </p>
 
               {submitted ? (
-                <div className="bg-green-50 border-2 border-green-500 rounded-xl p-8 text-center">
+                <div className="bg-gradient-to-br from-green-50 to-green-100/50 border-2 border-green-500 rounded-3xl p-8 text-center">
                   <div className="text-6xl mb-4">✅</div>
                   <h3 className="text-2xl font-bold text-green-700 mb-2">
                     Aspirasi Terkirim!
@@ -201,7 +212,7 @@ const Aspirasi = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                       placeholder="Masukkan nama lengkap"
                     />
                   </div>
@@ -216,7 +227,7 @@ const Aspirasi = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                       placeholder="nama@email.com"
                     />
                   </div>
@@ -230,7 +241,7 @@ const Aspirasi = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                       placeholder="08xx xxxx xxxx"
                     />
                   </div>
@@ -244,7 +255,7 @@ const Aspirasi = () => {
                       value={formData.category}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                     >
                       <option value="">Pilih kategori</option>
                       {categories.map((cat, index) => (
@@ -265,14 +276,14 @@ const Aspirasi = () => {
                       onChange={handleChange}
                       required
                       rows="6"
-                      className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors duration-200 resize-none"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
                       placeholder="Sampaikan aspirasi kamu dengan jelas..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-xl transition-all duration-200 hover:scale-105"
+                    className="w-full px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-full hover:from-primary-dark hover:to-accent-dark shadow-soft-lg hover:shadow-glow-cyan transition-all duration-300 hover:scale-105 active:scale-95"
                   >
                     Kirim Aspirasi
                   </button>
@@ -286,9 +297,9 @@ const Aspirasi = () => {
 
             {/* Contact Info */}
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-white rounded-3xl p-8 shadow-soft-lg border border-gray-100">
                 <h2 className="text-3xl font-bold text-gray-800 mb-2">
-                  Informasi Kontak
+                  Informasi <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Kontak</span>
                 </h2>
                 <p className="text-gray-600 mb-8">
                   Hubungi kami melalui saluran berikut
@@ -296,12 +307,12 @@ const Aspirasi = () => {
 
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${info.color} text-white rounded-xl flex items-center justify-center mr-4`}>
+                    <div key={index} className="flex items-start group">
+                      <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${info.color} text-white rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-soft`}>
                         {info.icon}
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-800 mb-1">
+                        <h3 className="font-bold text-gray-800 mb-1 group-hover:text-primary transition-colors duration-300">
                           {info.title}
                         </h3>
                         <p className="text-gray-600 whitespace-pre-line">
@@ -313,11 +324,12 @@ const Aspirasi = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-primary to-accent text-white rounded-2xl p-8 shadow-xl">
-                <h3 className="text-2xl font-bold mb-4">
+              <div className="bg-gradient-to-br from-primary via-accent to-secondary text-white rounded-3xl p-8 shadow-soft-lg relative overflow-hidden">
+                <div className="shape-float-2" style={{top: '10%', right: '5%', opacity: 0.15}}></div>
+                <h3 className="text-2xl font-bold mb-4 relative z-10">
                   Jam Operasional
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-3 relative z-10">
                   <div className="flex justify-between items-center">
                     <span>Senin - Jumat</span>
                     <span className="font-semibold">08:00 - 15:00</span>
@@ -333,7 +345,7 @@ const Aspirasi = () => {
                 </div>
               </div>
 
-              <div className="bg-neutral rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-8 border border-gray-100">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">
                   💡 Tips Aspirasi Efektif
                 </h3>
@@ -362,15 +374,18 @@ const Aspirasi = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white section-padding">
-        <div className="container-custom">
+      <section className="bg-white section-padding relative overflow-hidden">
+        <div className="shape-float-1" style={{top: '15%', right: '10%'}}></div>
+        <div className="shape-float-3" style={{bottom: '20%', left: '8%'}}></div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">
-              Pertanyaan Umum
+              Pertanyaan <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Umum</span>
             </h2>
 
             <div className="space-y-4">
-              <div className="bg-neutral rounded-2xl p-6">
+              <div className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-6 border border-gray-100 hover:shadow-soft transition-all duration-300">
                 <h3 className="font-bold text-gray-800 mb-2">
                   Apakah aspirasi saya akan ditindaklanjuti?
                 </h3>
@@ -379,7 +394,7 @@ const Aspirasi = () => {
                 </p>
               </div>
 
-              <div className="bg-neutral rounded-2xl p-6">
+              <div className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-6 border border-gray-100 hover:shadow-soft transition-all duration-300">
                 <h3 className="font-bold text-gray-800 mb-2">
                   Berapa lama waktu respon aspirasi?
                 </h3>
@@ -388,7 +403,7 @@ const Aspirasi = () => {
                 </p>
               </div>
 
-              <div className="bg-neutral rounded-2xl p-6">
+              <div className="bg-gradient-to-br from-white to-neutral/50 rounded-3xl p-6 border border-gray-100 hover:shadow-soft transition-all duration-300">
                 <h3 className="font-bold text-gray-800 mb-2">
                   Apakah identitas saya akan dirahasiakan?
                 </h3>
